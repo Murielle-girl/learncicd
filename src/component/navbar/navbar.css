@@ -1,0 +1,41 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #2196F3, #1E88E5, #1976D2);
+    border-radius: 5px; /* Ceci arrondira les coins de votre navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.default-logo {
+     background: linear-gradient(45deg, pink, blue, purple, white, black);
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Pour rendre le logo rond */
+    font-weight: bold;
+}
+
+
+.navbar__links {
+    display: flex;
+    gap: 15px; /* Pour un espace entre les liens */
+}
+
+.navbar__links a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+    /* Style pour un effet hover (survol) */
+    &:hover {
+        background-color: white;
+        color: #1976D2;
+    }
+}
