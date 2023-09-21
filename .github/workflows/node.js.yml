@@ -1,42 +1,43 @@
-name: ReactJS CI/CD Pipeline
+name: CI/CD
 
 on:
   push:
-    branches:
-      - main # Remplacer par le nom de votre branche principale si différente
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
       with:
-        node-version: '14' # Vous pouvez spécifier la version de Node.js que vous souhaitez utiliser
-
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
     - name: Install dependencies
       run: npm install
-
-    - name: Run tests
-      run: npm test
-
-    - name: Build React app
+    - name: Run the tests and generate coverage report
+      run: npm test -- --coverage
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+    - name: Build
       run: npm run build
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build # Le dossier contenant les fichiers à publier
+    - name: Deploy
+      run: |
+        git config --global user.name ${{env.user_name}} 
+        git config --global user.email ${{env.user_email}} 
+        git remote set-url origin https://${{ secrets.github_token }}@github.com/${{ github.repository }}
+        npm run deploy
+      env:
+        user_name: 'Murielle-girl'
+        user_email: 'murielleloe1@gmail.com'
+        github_token: ${{ secrets.DEPLOY_TOKEN }}
+        repository: ${{ github.repository }}
