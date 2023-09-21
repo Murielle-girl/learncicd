@@ -13,8 +13,8 @@ function Navbar() {
             <div className="navbar__links">
                 <NavLink to="/">Accueil</NavLink>
                 <NavLink to="/about">À propos</NavLink>
-                <a href="#">Services</a>
-                <a href="#">Contact</a>
+                <NavLink to="/">Services</NavLink>
+                <NavLink to="/">Contact</NavLink>
             </div>
         </div>
     );
