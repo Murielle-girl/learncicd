@@ -17,7 +17,7 @@ function HomePage() {
         <Fragment>
             <Navbar/>
             <div className="home-page">
-                <h1 data-testid="home-page">Bienvenue sur notre site !</h1>
+                <h1>Bienvenue sur notre site !</h1>
                 <div className="card-container">
                     {cardsData.map((card, index) => (
                         <div key={index} className="card">
