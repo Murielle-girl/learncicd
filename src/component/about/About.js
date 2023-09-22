@@ -15,7 +15,7 @@ function About() {
                     notre équipe est prête à relever tout défi et à proposer des solutions
                     innovantes pour vos besoins spécifiques.
                 </p>
-                <Link to="/" className="return-link">Retour à la page d'accueil</Link>  
+                <Link to="/" className="return-link">Retour </Link>  
             </div>
        </Fragment>
     );
