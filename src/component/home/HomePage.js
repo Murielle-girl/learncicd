@@ -10,6 +10,8 @@ function HomePage() {
          title: "Full Stack Developer", description: "Java JEE Sprint boot, sprint data, sprint security, Ci/CD" },
         { src: "https://media.istockphoto.com/id/1423550628/photo/multi-tasking-computer-programmers-working-in-a-modern-office.webp?b=1&s=170667a&w=0&k=20&c=_qCRmcaq96cNFAd35YsQ6JUcXbCjUykDZ4YllEpE5wo=", 
         title: "Project team", description: "We analyze your project. From analysis to design, testing and production. " },
+        { src: "https://media.istockphoto.com/id/1423550628/photo/multi-tasking-computer-programmers-working-in-a-modern-office.webp?b=1&s=170667a&w=0&k=20&c=_qCRmcaq96cNFAd35YsQ6JUcXbCjUykDZ4YllEpE5wo=", 
+        title: "Project team", description: "We analyze your project. From analysis to design, testing and production. " },
         //... Ajoutez plus de cartes si nécessaire
     ];
 
